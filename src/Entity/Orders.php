@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Orders
  *
- * @ORM\Table(name="orders", uniqueConstraints={@ORM\UniqueConstraint(name="orders_ID_uindex", columns={"ID"})}, indexes={@ORM\Index(name="orders_shippingcompany_Ship_ID_fk", columns={"Ship_ID"})})
+ * @ORM\Table(name="orders", uniqueConstraints={@ORM\UniqueConstraint(name="orders_ID_uindex", columns={"ID"})}, indexes={@ORM\Index(name="orders_shippingcompany_Ship_ID_fk", columns={"Ship_ID"}), @ORM\Index(name="orders_user_username_fk", columns={"username"})})
  * @ORM\Entity
  */
 class Orders
@@ -20,13 +20,6 @@ class Orders
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="username", type="string", length=255, nullable=false)
-     */
-    private $username;
 
     /**
      * @var \DateTime
@@ -51,6 +44,16 @@ class Orders
      * })
      */
     private $ship;
+
+    /**
+     * @var \User
+     *
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="username", referencedColumnName="username")
+     * })
+     */
+    private $username;
 
 
 }
