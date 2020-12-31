@@ -76,5 +76,133 @@ class Book
      */
     private $publisher;
 
+    /**
+     * @return string
+     */
+    public function getIsbn(): string
+    {
+        return $this->isbn;
+    }
+
+    /**
+     * @param string $isbn
+     */
+    public function setIsbn(string $isbn): void
+    {
+        $this->isbn = $isbn;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitle(): string
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param string $title
+     */
+    public function setTitle(string $title): void
+    {
+        $this->title = $title;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getPublishDate(): \DateTime
+    {
+        return $this->publishDate;
+    }
+
+    /**
+     * @param \DateTime $publishDate
+     */
+    public function setPublishDate(\DateTime $publishDate): void
+    {
+        $this->publishDate = $publishDate;
+    }
+
+    /**
+     * @return int
+     */
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
+
+    /**
+     * @param int $quantity
+     */
+    public function setQuantity($quantity): void
+    {
+        $this->quantity = $quantity;
+    }
+
+    /**
+     * @return float
+     */
+    public function getPrice(): float
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param float $price
+     */
+    public function setPrice(float $price): void
+    {
+        $this->price = $price;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCoverImage(): ?string
+    {
+        return $this->coverImage;
+    }
+
+    /**
+     * @param string|null $coverImage
+     */
+    public function setCoverImage(?string $coverImage): void
+    {
+        $this->coverImage = $coverImage;
+    }
+
+    /**
+     * @return \Languages
+     */
+    public function getLanguage(): \Languages
+    {
+        return $this->language;
+    }
+
+    /**
+     * @param \Languages $language
+     */
+    public function setLanguage(\Languages $language): void
+    {
+        $this->language = $language;
+    }
+
+    /**
+     * @return \Publishers
+     */
+    public function getPublisher(): \Publishers
+    {
+        return $this->publisher;
+    }
+
+    /**
+     * @param \Publishers $publisher
+     */
+    public function setPublisher(\Publishers $publisher): void
+    {
+        $this->publisher = $publisher;
+    }
+
 
 }
