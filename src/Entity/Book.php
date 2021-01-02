@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Book
  *
- * @ORM\Table(name="book", uniqueConstraints={@ORM\UniqueConstraint(name="book_ISBN_uindex", columns={"ISBN"})}, indexes={@ORM\Index(name="book_languages_Language_ID_fk", columns={"Language_ID"}), @ORM\Index(name="book_publishers_Publisher_ID_fk", columns={"Publisher_ID"})})
+ * @ORM\Table(name="book", uniqueConstraints={@ORM\UniqueConstraint(name="book_Cover_Path_uindex", columns={"Cover_Path"}), @ORM\UniqueConstraint(name="book_ISBN_uindex", columns={"ISBN"})}, indexes={@ORM\Index(name="book_languages_Language_ID_fk", columns={"Language_ID"}), @ORM\Index(name="book_publishers_Publisher_ID_fk", columns={"Publisher_ID"})})
  * @ORM\Entity
  */
 class Book
@@ -52,9 +52,9 @@ class Book
     /**
      * @var string|null
      *
-     * @ORM\Column(name="Cover_Image", type="blob", length=0, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="Cover_Path", type="string", length=255, nullable=true, options={"default"="NULL"})
      */
-    private $coverImage = 'NULL';
+    private $coverPath = 'NULL';
 
     /**
      * @var \Languages
@@ -159,17 +159,17 @@ class Book
     /**
      * @return string|null
      */
-    public function getCoverImage(): ?string
+    public function getCoverPath(): ?string
     {
-        return $this->coverImage;
+        return $this->coverPath;
     }
 
     /**
-     * @param string|null $coverImage
+     * @param string|null $coverPath
      */
-    public function setCoverImage(?string $coverImage): void
+    public function setCoverPath(?string $coverPath): void
     {
-        $this->coverImage = $coverImage;
+        $this->coverPath = $coverPath;
     }
 
     /**
