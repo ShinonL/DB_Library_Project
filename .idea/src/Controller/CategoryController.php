@@ -22,7 +22,6 @@ class CategoryController extends AbstractController {
         $books = $qb->getQuery()->getResult();
 
         $count1 = $count2 = $count3 = $count4 = 0;
-        $books1 = $books2 = $books3 = $books4 = null;
         for($index = 0; $index < count($books); $index++) {
             if($index % 4 === 0) {
                 $books1[$count1] = $books[$index];

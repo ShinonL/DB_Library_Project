@@ -21,7 +21,6 @@
             <div class="u-clearfix u-sheet u-valign-middle u-sheet-1"><!--products--><!--products_options_json--><!--{"type":"Recent","source":"","tags":"","count":4}--><!--/products_options_json-->
                 <div class="u-expanded-width u-products u-repeater u-repeater-1"><!--product_item-->
 
-                    {% if books1 is defined %}
                     {% if books1[index] is defined and books1[index] is not null  %}
                         <div class="u-align-center u-container-style u-products-item u-repeater-item">
                             <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1"><!--product_image-->
@@ -38,9 +37,8 @@
                                 <a href="/home/{{ books1[index].getIsbn }}" class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-product-control u-text-body-color u-btn-1"><!--product_button_content-->Details<!--/product_button_content--></a><!--/product_button-->
                             </div>
                         </div><!--/product_item--><!--product_item-->
-                    {% endif %}{% endif %}
+                    {% endif %}
 
-                    {% if books2 is defined %}
                     {% if books2[index] is defined and books2[index] is not null %}
                         <div class="u-align-center u-container-style u-products-item u-repeater-item">
                             <div class="u-container-layout u-similar-container u-valign-top u-container-layout-2"><!--product_image-->
@@ -57,9 +55,8 @@
                                 <a href="/home/{{ books2[index].getIsbn }}" class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-product-control u-text-body-color u-btn-2"><!--product_button_content-->Details<!--/product_button_content--></a><!--/product_button-->
                             </div>
                         </div><!--/product_item--><!--product_item-->
-                    {% endif %}{% endif %}
+                    {% endif %}
 
-                    {% if books3 is defined %}
                     {% if books3[index] is defined and  books3[index] is not null %}
                         <div class="u-align-center u-container-style u-products-item u-repeater-item">
                             <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3"><!--product_image-->
@@ -76,9 +73,8 @@
                                 <a href="/home/{{ books3[index].getIsbn }}" class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-product-control u-text-body-color u-btn-3"><!--product_button_content-->Details<!--/product_button_content--></a><!--/product_button-->
                             </div>
                         </div><!--/product_item--><!--product_item-->
-                    {% endif %}{% endif %}
+                    {% endif %}
 
-                    {% if books4[index] is defined%}
                     {% if books4[index] is defined and books4[index] is not null %}
                         <div class="u-align-center u-container-style u-products-item u-repeater-item">
                             <div class="u-container-layout u-similar-container u-valign-top u-container-layout-4"><!--product_image-->
@@ -95,7 +91,7 @@
                                 <a href="/home/{{ books4[index].getIsbn }}" class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-product-control u-text-body-color u-btn-4"><!--product_button_content-->Details<!--/product_button_content--></a><!--/product_button-->
                             </div>
                         </div><!--/product_item-->
-                    {% endif %}{% endif %}
+                    {% endif %}
 
                 </div><!--/products-->
             </div>
