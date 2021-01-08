@@ -2,22 +2,22 @@
 
 namespace App\Repository;
 
-use App\Entity\Publishers;
+use App\Entity\Publisher;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\Query\Expr\Join;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Publishers|null find($id, $lockMode = null, $lockVersion = null)
- * @method Publishers|null findOneBy(array $criteria, array $orderBy = null)
- * @method Publishers[]    findAll()
- * @method Publishers[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Publisher|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Publisher|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Publisher[]    findAll()
+ * @method Publisher[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class PublishersRepository extends ServiceEntityRepository
+class PublisherRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Publishers::class);
+        parent::__construct($registry, Publisher::class);
     }
 
     public function findPublisher($isbn) {

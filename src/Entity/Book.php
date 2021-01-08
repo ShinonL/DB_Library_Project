@@ -7,8 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Book
  *
- * @ORM\Table(name="book", uniqueConstraints={@ORM\UniqueConstraint(name="book_Cover_Path_uindex", columns={"Cover_Path"}), @ORM\UniqueConstraint(name="book_ISBN_uindex", columns={"ISBN"})}, indexes={@ORM\Index(name="book_languages_Language_ID_fk", columns={"Language_ID"}), @ORM\Index(name="book_publishers_Publisher_ID_fk", columns={"Publisher_ID"})})
- * @ORM\Entity
+ * @ORM\Table(name="book", uniqueConstraints={@ORM\UniqueConstraint(name="book_ISBN_uindex", columns={"ISBN"})}, indexes={@ORM\Index(name="book_languages_Language_ID_fk", columns={"Language_ID"}), @ORM\Index(name="book_publishers_Publisher_ID_fk", columns={"Publisher_ID"})})
+ * @ORM\Entity(repositoryClass="App\Repository\BookRepository")
  */
 class Book
 {
@@ -52,14 +52,14 @@ class Book
     /**
      * @var string|null
      *
-     * @ORM\Column(name="Cover_Path", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="Cover_Image", type="string", length=255, nullable=true, options={"default"="NULL"})
      */
-    private $coverPath = 'NULL';
+    private $coverImage = 'NULL';
 
     /**
-     * @var \Languages
+     * @var \Language
      *
-     * @ORM\ManyToOne(targetEntity="Languages")
+     * @ORM\ManyToOne(targetEntity="Language")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="Language_ID", referencedColumnName="Language_ID")
      * })
@@ -67,9 +67,9 @@ class Book
     private $language;
 
     /**
-     * @var \Publishers
+     * @var \Publisher
      *
-     * @ORM\ManyToOne(targetEntity="Publishers")
+     * @ORM\ManyToOne(targetEntity="Publisher")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="Publisher_ID", referencedColumnName="Publisher_ID")
      * })
@@ -159,47 +159,47 @@ class Book
     /**
      * @return string|null
      */
-    public function getCoverPath(): ?string
+    public function getCoverImage(): ?string
     {
-        return $this->coverPath;
+        return $this->coverImage;
     }
 
     /**
-     * @param string|null $coverPath
+     * @param string|null $coverImage
      */
-    public function setCoverPath(?string $coverPath): void
+    public function setCoverImage(?string $coverImage): void
     {
-        $this->coverPath = $coverPath;
+        $this->coverImage = $coverImage;
     }
 
     /**
-     * @return \Languages
+     * @return \Language
      */
-    public function getLanguage(): \Languages
+    public function getLanguage(): \Language
     {
         return $this->language;
     }
 
     /**
-     * @param \Languages $language
+     * @param \Language $language
      */
-    public function setLanguage(\Languages $language): void
+    public function setLanguage(\Language $language): void
     {
         $this->language = $language;
     }
 
     /**
-     * @return \Publishers
+     * @return \Publisher
      */
-    public function getPublisher(): \Publishers
+    public function getPublisher(): \Publisher
     {
         return $this->publisher;
     }
 
     /**
-     * @param \Publishers $publisher
+     * @param \Publisher $publisher
      */
-    public function setPublisher(\Publishers $publisher): void
+    public function setPublisher(\Publisher $publisher): void
     {
         $this->publisher = $publisher;
     }

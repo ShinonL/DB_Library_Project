@@ -13,7 +13,7 @@
         <div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-xl u-sheet-1"><!--product--><!--product_options_json--><!--{"source":""}--><!--/product_options_json--><!--product_item-->
             <div class="u-container-style u-expanded-width u-product u-product-1">
                 <div class="u-container-layout u-container-layout-1"><!--product_image-->
-                    <img alt="" class="u-image u-image-default u-product-control u-image-1" src="{{ book.coverPath }}"><!--/product_image-->
+                    <img alt="" class="u-image u-image-default u-product-control u-image-1" src="{{ book.coverImage }}"><!--/product_image-->
                     <div class="u-align-left u-container-style u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-shape-rectangle u-group-1">
                         <div class="u-container-layout u-container-layout-2"><!--product_title-->
                             <h2 class="u-product-control u-text u-text-1">
@@ -23,7 +23,7 @@
                             </p>
                             <p class="u-small-text u-text u-text-font u-text-variant u-text-3">
                                 {% for author in authors %}
-                                    {{ author.firstname }} {{ author.lastname }}
+                                    {{ author.firstName }} {{ author.lastName }}
                                 {% endfor %}
                                 <br>
                                 {% for genre in genres %}
@@ -37,7 +37,7 @@
                                 {% for pub in publisher %}
                                     {{ pub.name }}
                                 {% endfor %}
-                                 <br> {{ book.publishDate|date("m/d/Y")}} <br> {{ book.isbn }}
+                                 <br> {{ book.publishDate|date("m/d/Y") }} <br> {{ book.isbn }}
                             </p><!--product_price-->
                             <div class="u-product-control u-product-price u-product-price-1">
                                 <div class="u-price-wrapper u-spacing-10"><!--product_old_price-->

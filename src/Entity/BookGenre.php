@@ -7,8 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * BookGenre
  *
- * @ORM\Table(name="book_genre", uniqueConstraints={@ORM\UniqueConstraint(name="book_genre_ID_uindex", columns={"ID"})}, indexes={@ORM\Index(name="book_genre_genre_Genre_ID_fk", columns={"Genre_ID"}), @ORM\Index(name="book_genre_book_ISBN_fk", columns={"ISBN"})})
- * @ORM\Entity
+ * @ORM\Table(name="book_genre", indexes={@ORM\Index(name="book_genre_genre_Genre_ID_fk", columns={"Genre_ID"}), @ORM\Index(name="book_genre_book_ISBN_fk", columns={"ISBN"})})
+ * @ORM\Entity(repositoryClass="App\Repository\BookGenreRepository")
  */
 class BookGenre
 {
@@ -40,6 +40,54 @@ class BookGenre
      * })
      */
     private $genre;
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return \Book
+     */
+    public function getIsbn(): \Book
+    {
+        return $this->isbn;
+    }
+
+    /**
+     * @param \Book $isbn
+     */
+    public function setIsbn(\Book $isbn): void
+    {
+        $this->isbn = $isbn;
+    }
+
+    /**
+     * @return \Genre
+     */
+    public function getGenre(): \Genre
+    {
+        return $this->genre;
+    }
+
+    /**
+     * @param \Genre $genre
+     */
+    public function setGenre(\Genre $genre): void
+    {
+        $this->genre = $genre;
+    }
 
 
 }

@@ -7,15 +7,15 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * User
  *
- * @ORM\Table(name="user", uniqueConstraints={@ORM\UniqueConstraint(name="User_username_uindex", columns={"username"}), @ORM\UniqueConstraint(name="User_Email_uindex", columns={"Email"})}, indexes={@ORM\Index(name="user_city_City_ID_fk", columns={"City_ID"})})
- * @ORM\Entity
+ * @ORM\Table(name="user", uniqueConstraints={@ORM\UniqueConstraint(name="User_username_uindex", columns={"Username"}), @ORM\UniqueConstraint(name="User_Email_uindex", columns={"Email"})}, indexes={@ORM\Index(name="user_city_City_ID_fk", columns={"City_ID"})})
+ * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
 class User
 {
     /**
      * @var string
      *
-     * @ORM\Column(name="username", type="string", length=255, nullable=false)
+     * @ORM\Column(name="Username", type="string", length=255, nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
@@ -24,23 +24,23 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="password", type="string", length=255, nullable=false)
+     * @ORM\Column(name="Password", type="string", length=255, nullable=false)
      */
     private $password;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="firstName", type="string", length=50, nullable=false)
+     * @ORM\Column(name="First_Name", type="string", length=50, nullable=false)
      */
-    private $firstname;
+    private $firstName;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="lastName", type="string", length=50, nullable=false)
+     * @ORM\Column(name="Last_Name", type="string", length=50, nullable=false)
      */
-    private $lastname;
+    private $lastName;
 
     /**
      * @var string
@@ -108,33 +108,33 @@ class User
     /**
      * @return string
      */
-    public function getFirstname(): string
+    public function getFirstName(): string
     {
-        return $this->firstname;
+        return $this->firstName;
     }
 
     /**
-     * @param string $firstname
+     * @param string $firstName
      */
-    public function setFirstname(string $firstname): void
+    public function setFirstName(string $firstName): void
     {
-        $this->firstname = $firstname;
+        $this->firstName = $firstName;
     }
 
     /**
      * @return string
      */
-    public function getLastname(): string
+    public function getLastName(): string
     {
-        return $this->lastname;
+        return $this->lastName;
     }
 
     /**
-     * @param string $lastname
+     * @param string $lastName
      */
-    public function setLastname(string $lastname): void
+    public function setLastName(string $lastName): void
     {
-        $this->lastname = $lastname;
+        $this->lastName = $lastName;
     }
 
     /**

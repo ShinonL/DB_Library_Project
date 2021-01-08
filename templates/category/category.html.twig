@@ -25,7 +25,7 @@
                     {% if books1[index] is defined and books1[index] is not null  %}
                         <div class="u-align-center u-container-style u-products-item u-repeater-item">
                             <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1"><!--product_image-->
-                                <img alt="" class="u-expanded-width u-image u-image-default u-product-control u-image-1" src="{{ books1[index].getCoverPath }}"><!--/product_image--><!--product_title-->
+                                <img alt="" class="u-expanded-width u-image u-image-default u-product-control u-image-1" src="{{ books1[index].getCoverImage }}"><!--/product_image--><!--product_title-->
                                 <h4 class="u-align-center u-product-control u-text u-text-1">
                                     <a class="u-product-title-link" href="/home/{{ books1[index].getIsbn }}"><!--product_title_content-->{{ books1[index].getTitle }}<!--/product_title_content--></a>
                                 </h4><!--/product_title--><!--product_price-->
@@ -44,7 +44,7 @@
                     {% if books2[index] is defined and books2[index] is not null %}
                         <div class="u-align-center u-container-style u-products-item u-repeater-item">
                             <div class="u-container-layout u-similar-container u-valign-top u-container-layout-2"><!--product_image-->
-                                <img alt="" class="u-expanded-width u-image u-image-default u-product-control u-image-2" src="{{ books2[index].getCoverPath }}"><!--/product_image--><!--product_title-->
+                                <img alt="" class="u-expanded-width u-image u-image-default u-product-control u-image-2" src="{{ books2[index].getCoverImage }}"><!--/product_image--><!--product_title-->
                                 <h4 class="u-product-control u-text u-text-2">
                                     <a class="u-product-title-link" href="/home/{{ books2[index].getIsbn }}"><!--product_title_content-->{{ books2[index].getTitle }}<!--/product_title_content--></a>
                                 </h4><!--/product_title--><!--product_price-->
@@ -63,7 +63,7 @@
                     {% if books3[index] is defined and  books3[index] is not null %}
                         <div class="u-align-center u-container-style u-products-item u-repeater-item">
                             <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3"><!--product_image-->
-                                <img alt="" class="u-expanded-width u-image u-image-default u-product-control u-image-3" src="{{ books3[index].getCoverPath }}"><!--/product_image--><!--product_title-->
+                                <img alt="" class="u-expanded-width u-image u-image-default u-product-control u-image-3" src="{{ books3[index].getCoverImage }}"><!--/product_image--><!--product_title-->
                                 <h4 class="u-product-control u-text u-text-3">
                                     <a class="u-product-title-link" href="/home/{{ books3[index].getIsbn }}"><!--product_title_content-->{{ books3[index].getTitle }}<!--/product_title_content--></a>
                                 </h4><!--/product_title--><!--product_price-->
@@ -82,7 +82,7 @@
                     {% if books4[index] is defined and books4[index] is not null %}
                         <div class="u-align-center u-container-style u-products-item u-repeater-item">
                             <div class="u-container-layout u-similar-container u-valign-top u-container-layout-4"><!--product_image-->
-                                <img alt="" class="u-expanded-width u-image u-image-default u-product-control u-image-4" src="{{ books4[index].getCoverPath }}"><!--/product_image--><!--product_title-->
+                                <img alt="" class="u-expanded-width u-image u-image-default u-product-control u-image-4" src="{{ books4[index].getCoverImage }}"><!--/product_image--><!--product_title-->
                                 <h4 class="u-product-control u-text u-text-4">
                                     <a class="u-product-title-link" href="/home/{{ books1[index].getIsbn }}"><!--product_title_content-->{{ books4[index].getTitle }}<!--/product_title_content--></a>
                                 </h4><!--/product_title--><!--product_price-->

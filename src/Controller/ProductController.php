@@ -2,13 +2,13 @@
 namespace App\Controller;
 use App\Repository\AuthorRepository;
 use App\Repository\GenreRepository;
-use App\Repository\LanguagesRepository;
-use App\Repository\PublishersRepository;
+use App\Repository\LanguageRepository;
+use App\Repository\PublisherRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Book;
-use App\Entity\BookAuthors;
+use App\Entity\BookAuthor;
 
 class ProductController extends AbstractController {
     /**
@@ -16,7 +16,7 @@ class ProductController extends AbstractController {
      * @Route("/home/{isbn}", name="app_product")
      */
     public function details($isbn, AuthorRepository $authorRepository, GenreRepository $genreRepository,
-            LanguagesRepository $languagesRepository, PublishersRepository $publishersRepository): Response {
+            LanguageRepository $languagesRepository, PublisherRepository $publishersRepository): Response {
         # Get book
         $entityManager = $this->getDoctrine()->getManager();
         $book = $entityManager->getRepository('App:Book')->findOneBy(['isbn' => $isbn]);

@@ -7,8 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * BookOrder
  *
- * @ORM\Table(name="book_order", uniqueConstraints={@ORM\UniqueConstraint(name="book_order_ID_uindex", columns={"ID"})}, indexes={@ORM\Index(name="book_order_orders_ID_fk", columns={"Order_ID"}), @ORM\Index(name="book_order_book_ISBN_fk", columns={"ISBN"})})
- * @ORM\Entity
+ * @ORM\Table(name="book_order", indexes={@ORM\Index(name="book_order_orders_ID_fk", columns={"Order_ID"}), @ORM\Index(name="book_order_book_ISBN_fk", columns={"ISBN"})})
+ * @ORM\Entity(repositoryClass="App\Repository\BookOrderRepository")
  */
 class BookOrder
 {
@@ -47,6 +47,70 @@ class BookOrder
      * })
      */
     private $order;
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return int
+     */
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
+
+    /**
+     * @param int $quantity
+     */
+    public function setQuantity($quantity): void
+    {
+        $this->quantity = $quantity;
+    }
+
+    /**
+     * @return \Book
+     */
+    public function getIsbn(): \Book
+    {
+        return $this->isbn;
+    }
+
+    /**
+     * @param \Book $isbn
+     */
+    public function setIsbn(\Book $isbn): void
+    {
+        $this->isbn = $isbn;
+    }
+
+    /**
+     * @return \Orders
+     */
+    public function getOrder(): \Orders
+    {
+        return $this->order;
+    }
+
+    /**
+     * @param \Orders $order
+     */
+    public function setOrder(\Orders $order): void
+    {
+        $this->order = $order;
+    }
 
 
 }

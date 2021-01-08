@@ -7,8 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * OrderDiscount
  *
- * @ORM\Table(name="order_discount", uniqueConstraints={@ORM\UniqueConstraint(name="order_discount_ID_uindex", columns={"ID"})}, indexes={@ORM\Index(name="order_discount_discounts_Discount_ID_fk", columns={"Discount_ID"}), @ORM\Index(name="order_discount_orders_ID_fk", columns={"Order_ID"})})
- * @ORM\Entity
+ * @ORM\Table(name="order_discount", indexes={@ORM\Index(name="order_discount_orders_ID_fk", columns={"Order_ID"}), @ORM\Index(name="order_discount_discounts_Discount_ID_fk", columns={"Discount_ID"})})
+ * @ORM\Entity(repositoryClass="App\Repository\OrderDiscountRepository")
  */
 class OrderDiscount
 {
@@ -22,9 +22,9 @@ class OrderDiscount
     private $id;
 
     /**
-     * @var \Discounts
+     * @var \Discount
      *
-     * @ORM\ManyToOne(targetEntity="Discounts")
+     * @ORM\ManyToOne(targetEntity="Discount")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="Discount_ID", referencedColumnName="Discount_ID")
      * })
@@ -40,6 +40,54 @@ class OrderDiscount
      * })
      */
     private $order;
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return \Discount
+     */
+    public function getDiscount(): \Discount
+    {
+        return $this->discount;
+    }
+
+    /**
+     * @param \Discount $discount
+     */
+    public function setDiscount(\Discount $discount): void
+    {
+        $this->discount = $discount;
+    }
+
+    /**
+     * @return \Orders
+     */
+    public function getOrder(): \Orders
+    {
+        return $this->order;
+    }
+
+    /**
+     * @param \Orders $order
+     */
+    public function setOrder(\Orders $order): void
+    {
+        $this->order = $order;
+    }
 
 
 }

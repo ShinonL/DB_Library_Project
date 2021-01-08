@@ -13,6 +13,8 @@ class LoginController extends AbstractController {
     public function login() : Response {
         if(!isset($_GET['action']))
             $_GET['action'] = '';
+        if(isset($_SESSION['user']))
+            $_GET['action'] = 'validate';
         $error = null;
 
         switch($_GET['action']) {

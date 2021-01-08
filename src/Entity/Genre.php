@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Genre
  *
  * @ORM\Table(name="genre", uniqueConstraints={@ORM\UniqueConstraint(name="genre_Genre_ID_uindex", columns={"Genre_ID"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\GenreRepository")
  */
 class Genre
 {

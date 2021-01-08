@@ -23,8 +23,8 @@ class AuthorRepository extends ServiceEntityRepository
     public function findAuthors($isbn) {
         $qb = $this->createQueryBuilder('aut');
 
-        $qb->select('aut.lastname', 'aut.firstname')
-            ->innerJoin('App\Entity\BookAuthors', 'ba', Join::WITH, 'ba.author = aut.id')
+        $qb->select('aut.lastName', 'aut.firstName')
+            ->innerJoin('App\Entity\BookAuthor', 'ba', Join::WITH, 'ba.author = aut.id')
             ->innerJoin('App\Entity\Book', 'b', Join::WITH, 'ba.isbn = b.isbn')
             ->where('b.isbn = '.$isbn );
 

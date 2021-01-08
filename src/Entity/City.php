@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * City
  *
  * @ORM\Table(name="city", uniqueConstraints={@ORM\UniqueConstraint(name="city_City_ID_uindex", columns={"City_ID"})}, indexes={@ORM\Index(name="city_country_Country_ID_fk", columns={"Country_ID"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\CityRepository")
  */
 class City
 {
@@ -38,5 +38,36 @@ class City
      */
     private $country;
 
+    /**
+     * @return int
+     */
+    public function getCityId(): int
+    {
+        return $this->cityId;
+    }
+
+    /**
+     * @param int $cityId
+     */
+    public function setCityId(int $cityId): void
+    {
+        $this->cityId = $cityId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
 
 }
