@@ -3,42 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="05d915d3-bdf6-49b7-bb7a-1295e0c82f2c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/framework.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/framework.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Author.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Book.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/BookAuthors.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/BookGenre.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/BookOrder.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/City.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Country.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Discounts.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Genre.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Languages.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/OrderDiscount.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Orders.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Publishers.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Review.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Shippingcompany.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/AuthorRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/BookAuthorsRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/BookGenreRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/BookOrderRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/BookRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/CityRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/CountryRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/DiscountsRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/GenreRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/LanguagesRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/OrderDiscountRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/OrdersRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/PublishersRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ReviewRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ShippingcompanyRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/home.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/product/product.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/product.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/myaccount/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/myaccount/login.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,7 +175,9 @@
       <workItem from="1610045445889" duration="600000" />
       <workItem from="1610048476242" duration="2058000" />
       <workItem from="1610051545028" duration="5240000" />
-      <workItem from="1610127879871" duration="6403000" />
+      <workItem from="1610127879871" duration="8678000" />
+      <workItem from="1610189192116" duration="5837000" />
+      <workItem from="1610211701240" duration="594000" />
     </task>
     <servers />
   </component>
