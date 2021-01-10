@@ -7,8 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * User
  *
- * @ORM\Table(name="user", uniqueConstraints={@ORM\UniqueConstraint(name="User_username_uindex", columns={"Username"}), @ORM\UniqueConstraint(name="User_Email_uindex", columns={"Email"})}, indexes={@ORM\Index(name="user_city_City_ID_fk", columns={"City_ID"})})
- * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @ORM\Table(name="user", uniqueConstraints={@ORM\UniqueConstraint(name="User_Email_uindex", columns={"Email"}), @ORM\UniqueConstraint(name="User_username_uindex", columns={"Username"})}, indexes={@ORM\Index(name="user_city_City_ID_fk", columns={"City_ID"})})
+ * @ORM\Entity
  */
 class User
 {
@@ -186,9 +186,9 @@ class User
     }
 
     /**
-     * @return \City
+     * @return City
      */
-    public function getCity(): \City
+    public function getCity(): City
     {
         return $this->city;
     }
@@ -200,6 +200,5 @@ class User
     {
         $this->city = $city;
     }
-
 
 }

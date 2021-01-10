@@ -1,8 +1,37 @@
 {% extends "base.html.twig" %}
 
+{% block title %}My Account{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="/css/login.css">
+{% endblock %}
+
 {% block body %}
-    <ul>
-        <li>{{ user.username }}</li>
-        <li>{{ user.address }}</li>
-    </ul>
+    <section>
+        <div class="wrapper fadeInDown">
+            <div class="wrapper fadeInDown">
+                {% if error is defined %}
+                    <h3 style="color: #adcce9">{{ error }}</h3>
+                {% endif %}
+
+                <div id="formContent">
+                    <!-- Update Form -->
+                    <form action="{{ path('app_submit_update') }}" method="post">
+                        <input type="text" id="username" class="fadeIn second" name="username" placeholder="{{user.username}}">
+                        <input type="text" id="firstname" class="fadeIn second" name="firstName" placeholder="{{user.firstName}}" >
+                        <input type="text" id="lastname" class="fadeIn second" name="lastName" placeholder="{{user.lastName}}" >
+                        <input type="text" id="address" class="fadeIn second" name="address" placeholder="{{user.address}}" >
+                        <input type="text" id="city" class="fadeIn second" name="city" placeholder="{{ user.city }}" >
+                        <input type="text" id="country" class="fadeIn second" name="country" placeholder="{{ user.country }}">
+                        <input type="text" id="phone" class="fadeIn second" name="phone" placeholder="{{user.phone}}" >
+                        <input type="text" id="email" class="fadeIn second" name="email" placeholder="{{user.email}}" >
+                        <input type="password" id="password" class="fadeIn third" name="password" placeholder="password" >
+                        <input type="submit" class="fadeIn fourth" value="Update Account">
+                        <input type="submit" class="fadeIn fourth" formaction="/deleteAccount" value="Delete Account">
+                    </form>
+                    <form action="{{ path('app_logout') }}" method="get"><input type="submit" class="fadeIn fourth" value="Log Out"></form>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}

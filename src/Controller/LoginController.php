@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 use Doctrine\ORM\Query\Expr\Join;
+use phpDocumentor\Reflection\Types\This;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,37 +20,31 @@ class LoginController extends AbstractController {
      * @Route("/login", name="app_login")
      */
     public function login() : Response {
-        if(!isset($_GET['action']))
-            $_GET['action'] = '';
-        $error = null;
+        return $this->render('myaccount/login.html.twig', []);
+    }
 
-        switch($_GET['action']) {
-            case '':
-                return $this->render('myaccount/login.html.twig', [
-                    'error' => $error
-                ]);
-            case 'validate':
-                $_SESSION['username'] = $_POST['username'];
+    /**
+     * @Route("/submitLogin", name="app_submit_login")
+     */
+    public function submitLogin(Request $request) : Response {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
 
-                $user = $this->getDoctrine()->getRepository('App:User')->findBy(['username' => $_SESSION['username']]);
-                if($user != null && $user[0]->getPassword() == $_POST['password']) {
-                    $this->session->set('username', 'password');
-                    return $this->render('myaccount/myaccount.html.twig', [
-                        'user' => $user[0]
-                    ]);
-                }
-                else {
-                    $error = 'Invalid username or password';
-                    return $this->render('myaccount/login.html.twig', [
-                        'error' => $error
-                    ]);
-                }
-            default: {
-                return $this->render('myaccount/login.html.twig', [
-                    'error' => $error
-                ]);
-            }
+        $userRepository = $this->getDoctrine()->getRepository('App:User');
+        $user = $userRepository->findOneBy(['username' => $username]);
+        if($user == null || $user->getPassword() !== $password) {
+            $error = "Invalid username or password";
+            return $this->render("myaccount/login.html.twig", [
+                'error' => $error
+            ]);
         }
+
+        $request->setSession($this->session);
+        $request->getSession()->start();
+
+        $request->getSession()->set('isLoggedIn', true);
+        $request->getSession()->set('user', $user);
+        return $this->redirect("/myaccount");
     }
 
     /**
@@ -57,5 +52,13 @@ class LoginController extends AbstractController {
      */
     public function register() {
         return $this->render('myaccount/register.html.twig', []);
+    }
+
+    /**
+     * @Route("/logout", name="app_logout")
+     */
+    public function logout(Request $request) {
+        $request->getSession()->invalidate();
+        return $this->redirect("/login");
     }
 }

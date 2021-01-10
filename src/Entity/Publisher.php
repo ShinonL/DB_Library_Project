@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Publisher
  *
  * @ORM\Table(name="publisher", uniqueConstraints={@ORM\UniqueConstraint(name="publishers_Publisher_ID_uindex", columns={"Publisher_ID"})})
- * @ORM\Entity(repositoryClass="App\Repository\PublisherRepository")
+ * @ORM\Entity
  */
 class Publisher
 {

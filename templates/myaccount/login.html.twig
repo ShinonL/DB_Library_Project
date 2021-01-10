@@ -1,9 +1,10 @@
-<html>
-<head>
-    <title>Login</title>
+{% extends "base.html.twig" %}
+
+{% block title %} Login {% endblock %}
+{% block stylesheets %}
     <link rel="stylesheet" href="/css/login.css">
-</head>
-<body>
+{% endblock %}
+{% block body %}
     <div class="wrapper fadeInDown">
         {% if error is defined %}
             <h3 style="color: #adcce9">{{ error }}</h3>
@@ -13,7 +14,7 @@
             <a> <h2 class="active"> Sign In </h2></a>
             <a href="{{ path('app_register') }}"><h2 class="inactive underlineHover">Sign Up </h2></a>
                     <!-- Login Form -->
-            <form action="{{ path('app_login') }}?action=validate" method="post">
+            <form action="{{ path('app_submit_login') }}" method="post">
                 <input type="text" id="login" class="fadeIn second" name="username" placeholder="username" required>
                 <input type="password" id="password" class="fadeIn third" name="password" placeholder="password" required>
                 <input type="submit" class="fadeIn fourth" value="Log In">
@@ -24,5 +25,4 @@
             </div>
         </div>
     </div>
-</body>
-</html>
+{% endblock %}
