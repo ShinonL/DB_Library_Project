@@ -16,7 +16,7 @@
             <a><h2  class="active underlineHover">Sign Up </h2></a>
 
             <!-- Login Form -->
-            <form action="/submitRegister" method="post">
+            <form action="{{ path('app_submit_register') }}" method="post">
                 <input type="text" class="fadeIn second" name="username" placeholder="username" required>
                 <input type="text" class="fadeIn second" name="firstName" placeholder="First Name" required>
                 <input type="text" class="fadeIn second" name="lastName" placeholder="Last Name" required>
@@ -28,8 +28,6 @@
                 <input type="password" class="fadeIn third" name="password" placeholder="password" required>
                 <input type="submit" class="fadeIn fourth" value="Register">
             </form>
-
-
         </div>
     </div>
 </div>

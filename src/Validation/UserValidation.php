@@ -23,7 +23,7 @@ class UserValidation {
 
     public static function isValidUsername($userRepository, $username) : bool {
         if(empty($username)) return true;
-        if(preg_match("/[a-zA-Z][a-zA-Z0-9\\-._]{3,}/", $username)) {
+        if(preg_match("/[a-zA-Z][a-zA-Z0-9\.\_]{3,}/", $username)) {
             $user = $userRepository->findOneBy(['username' => $username]);
             return $user == null;
         }

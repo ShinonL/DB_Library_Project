@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05d915d3-bdf6-49b7-bb7a-1295e0c82f2c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bb461e1c-d327-4d1b-a28e-504c9aa0319f.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bb461e1c-d327-4d1b-a28e-504c9aa0319f/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AccountController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AccountController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/City.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/City.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Country.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Country.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/CountryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/CountryRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/test.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/test.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Validation/UserValidation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Validation/UserValidation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/myaccount/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/myaccount/register.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,7 +190,7 @@
       <workItem from="1610305075130" duration="11123000" />
       <workItem from="1610446660190" duration="3172000" />
       <workItem from="1610450164224" duration="141000" />
-      <workItem from="1610450318111" duration="24553000" />
+      <workItem from="1610450318111" duration="26101000" />
     </task>
     <task id="LOCAL-00001" summary="Before trying to permanently login">
       <created>1610305121514</created>
@@ -214,7 +206,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610316329030</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Update Account">
+      <created>1610486838698</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1610486838698</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,7 +234,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Before trying to permanently login" />
     <MESSAGE value="Login HTML working" />
-    <option name="LAST_COMMIT_MESSAGE" value="Login HTML working" />
+    <MESSAGE value="Update Account" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Account" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
