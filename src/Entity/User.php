@@ -17,7 +17,7 @@ class User
      *
      * @ORM\Column(name="Username", type="string", length=255, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $username;
 
@@ -194,9 +194,9 @@ class User
     }
 
     /**
-     * @param \City $city
+     * @param City $city
      */
-    public function setCity(\City $city): void
+    public function setCity(City $city): void
     {
         $this->city = $city;
     }

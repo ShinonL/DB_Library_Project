@@ -17,7 +17,7 @@ class Country
      *
      * @ORM\Column(name="Country_ID", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $countryId;
 

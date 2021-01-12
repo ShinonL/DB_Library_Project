@@ -17,7 +17,7 @@ class City
      *
      * @ORM\Column(name="City_ID", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $cityId;
 
@@ -79,9 +79,9 @@ class City
     }
 
     /**
-     * @param \Country $country
+     * @param Country $country
      */
-    public function setCountry(\Country $country): void
+    public function setCountry(Country $country): void
     {
         $this->country = $country;
     }

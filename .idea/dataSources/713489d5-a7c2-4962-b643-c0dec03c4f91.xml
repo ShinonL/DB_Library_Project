@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="MySQL - library@localhost">
+<dataSource name="library@localhost">
   <database-model serializer="dbm" dbms="MARIADB" family-id="MARIADB" format-version="4.20">
     <root id="1">
       <ServerVersion>10.4.17</ServerVersion>
@@ -1054,5 +1054,671 @@
       <ObjectGrants>ALL PRIVILEGES!
 </ObjectGrants>
     </user>
+    <table id="335" parent="4" name="author"/>
+    <table id="336" parent="4" name="book"/>
+    <table id="337" parent="4" name="book_author"/>
+    <table id="338" parent="4" name="book_genre"/>
+    <table id="339" parent="4" name="book_order"/>
+    <table id="340" parent="4" name="city"/>
+    <table id="341" parent="4" name="country"/>
+    <table id="342" parent="4" name="discount"/>
+    <table id="343" parent="4" name="genre"/>
+    <table id="344" parent="4" name="language"/>
+    <table id="345" parent="4" name="order_discount"/>
+    <table id="346" parent="4" name="orders"/>
+    <table id="347" parent="4" name="publisher"/>
+    <table id="348" parent="4" name="review"/>
+    <table id="349" parent="4" name="shipping_company"/>
+    <table id="350" parent="4" name="user"/>
+    <column id="351" parent="335" name="ID">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="352" parent="335" name="First_Name">
+      <Position>2</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="353" parent="335" name="Last_Name">
+      <Position>3</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="354" parent="335" name="author_ID_uindex">
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="355" parent="335" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="356" parent="335" name="author_ID_uindex">
+      <ColNames>ID</ColNames>
+      <UnderlyingIndexName>author_ID_uindex</UnderlyingIndexName>
+    </key>
+    <column id="357" parent="336" name="ISBN">
+      <Position>1</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="358" parent="336" name="Title">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="359" parent="336" name="Publisher_ID">
+      <Position>3</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="360" parent="336" name="Publish_Date">
+      <Position>4</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="361" parent="336" name="Language_ID">
+      <Position>5</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="362" parent="336" name="Quantity">
+      <Position>6</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <column id="363" parent="336" name="Price">
+      <Position>7</Position>
+      <DataType>double|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="364" parent="336" name="Cover_Image">
+      <Position>8</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <index id="365" parent="336" name="book_ISBN_uindex">
+      <ColNames>ISBN</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="366" parent="336" name="book_publishers_Publisher_ID_fk">
+      <ColNames>Publisher_ID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="367" parent="336" name="book_languages_Language_ID_fk">
+      <ColNames>Language_ID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="368" parent="336" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ISBN</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="369" parent="336" name="book_ISBN_uindex">
+      <ColNames>ISBN</ColNames>
+      <UnderlyingIndexName>book_ISBN_uindex</UnderlyingIndexName>
+    </key>
+    <foreign-key id="370" parent="336" name="book_publishers_Publisher_ID_fk">
+      <ColNames>Publisher_ID</ColNames>
+      <RefTableName>publisher</RefTableName>
+      <RefColNames>Publisher_ID</RefColNames>
+    </foreign-key>
+    <foreign-key id="371" parent="336" name="book_languages_Language_ID_fk">
+      <ColNames>Language_ID</ColNames>
+      <RefTableName>language</RefTableName>
+      <RefColNames>Language_ID</RefColNames>
+    </foreign-key>
+    <column id="372" parent="337" name="ID">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="373" parent="337" name="ISBN">
+      <Position>2</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="374" parent="337" name="Author_ID">
+      <Position>3</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="375" parent="337" name="book_authors_book_ISBN_fk">
+      <ColNames>ISBN</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="376" parent="337" name="book_authors_author_ID_fk">
+      <ColNames>Author_ID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="377" parent="337" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="378" parent="337" name="book_authors_book_ISBN_fk">
+      <ColNames>ISBN</ColNames>
+      <RefTableName>book</RefTableName>
+      <RefColNames>ISBN</RefColNames>
+    </foreign-key>
+    <foreign-key id="379" parent="337" name="book_authors_author_ID_fk">
+      <ColNames>Author_ID</ColNames>
+      <RefTableName>author</RefTableName>
+      <RefColNames>ID</RefColNames>
+    </foreign-key>
+    <column id="380" parent="338" name="ID">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="381" parent="338" name="ISBN">
+      <Position>2</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="382" parent="338" name="Genre_ID">
+      <Position>3</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="383" parent="338" name="book_genre_book_ISBN_fk">
+      <ColNames>ISBN</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="384" parent="338" name="book_genre_genre_Genre_ID_fk">
+      <ColNames>Genre_ID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="385" parent="338" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="386" parent="338" name="book_genre_book_ISBN_fk">
+      <ColNames>ISBN</ColNames>
+      <RefTableName>book</RefTableName>
+      <RefColNames>ISBN</RefColNames>
+    </foreign-key>
+    <foreign-key id="387" parent="338" name="book_genre_genre_Genre_ID_fk">
+      <ColNames>Genre_ID</ColNames>
+      <RefTableName>genre</RefTableName>
+      <RefColNames>Genre_ID</RefColNames>
+    </foreign-key>
+    <column id="388" parent="339" name="ID">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="389" parent="339" name="ISBN">
+      <Position>2</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="390" parent="339" name="Order_ID">
+      <Position>3</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="391" parent="339" name="Quantity">
+      <Position>4</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>1</DefaultExpression>
+    </column>
+    <index id="392" parent="339" name="book_order_book_ISBN_fk">
+      <ColNames>ISBN</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="393" parent="339" name="book_order_orders_ID_fk">
+      <ColNames>Order_ID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="394" parent="339" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="395" parent="339" name="book_order_book_ISBN_fk">
+      <ColNames>ISBN</ColNames>
+      <RefTableName>book</RefTableName>
+      <RefColNames>ISBN</RefColNames>
+    </foreign-key>
+    <foreign-key id="396" parent="339" name="book_order_orders_ID_fk">
+      <ColNames>Order_ID</ColNames>
+      <RefTableName>orders</RefTableName>
+      <RefColNames>ID</RefColNames>
+    </foreign-key>
+    <column id="397" parent="340" name="City_ID">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="398" parent="340" name="Name">
+      <Position>2</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="399" parent="340" name="Country_ID">
+      <Position>3</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="400" parent="340" name="city_City_ID_uindex">
+      <ColNames>City_ID</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="401" parent="340" name="city_country_Country_ID_fk">
+      <ColNames>Country_ID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="402" parent="340" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>City_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="403" parent="340" name="city_City_ID_uindex">
+      <ColNames>City_ID</ColNames>
+      <UnderlyingIndexName>city_City_ID_uindex</UnderlyingIndexName>
+    </key>
+    <foreign-key id="404" parent="340" name="city_country_Country_ID_fk">
+      <ColNames>Country_ID</ColNames>
+      <RefTableName>country</RefTableName>
+      <RefColNames>Country_ID</RefColNames>
+    </foreign-key>
+    <column id="405" parent="341" name="Country_ID">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="406" parent="341" name="Name">
+      <Position>2</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="407" parent="341" name="country_Country_ID_uindex">
+      <ColNames>Country_ID</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="408" parent="341" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Country_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="409" parent="341" name="country_Country_ID_uindex">
+      <ColNames>Country_ID</ColNames>
+      <UnderlyingIndexName>country_Country_ID_uindex</UnderlyingIndexName>
+    </key>
+    <column id="410" parent="342" name="Discount_ID">
+      <Position>1</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="411" parent="342" name="Value">
+      <Position>2</Position>
+      <DataType>double|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <index id="412" parent="342" name="discounts_Discount_ID_uindex">
+      <ColNames>Discount_ID</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="413" parent="342" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Discount_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="414" parent="342" name="discounts_Discount_ID_uindex">
+      <ColNames>Discount_ID</ColNames>
+      <UnderlyingIndexName>discounts_Discount_ID_uindex</UnderlyingIndexName>
+    </key>
+    <column id="415" parent="343" name="Genre_ID">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="416" parent="343" name="Name">
+      <Position>2</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="417" parent="343" name="genre_Genre_ID_uindex">
+      <ColNames>Genre_ID</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="418" parent="343" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Genre_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="419" parent="343" name="genre_Genre_ID_uindex">
+      <ColNames>Genre_ID</ColNames>
+      <UnderlyingIndexName>genre_Genre_ID_uindex</UnderlyingIndexName>
+    </key>
+    <column id="420" parent="344" name="Language_ID">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="421" parent="344" name="Language_Name">
+      <Position>2</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="422" parent="344" name="languages_Language_ID_uindex">
+      <ColNames>Language_ID</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="423" parent="344" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Language_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="424" parent="344" name="languages_Language_ID_uindex">
+      <ColNames>Language_ID</ColNames>
+      <UnderlyingIndexName>languages_Language_ID_uindex</UnderlyingIndexName>
+    </key>
+    <column id="425" parent="345" name="ID">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="426" parent="345" name="Order_ID">
+      <Position>2</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="427" parent="345" name="Discount_ID">
+      <Position>3</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="428" parent="345" name="order_discount_orders_ID_fk">
+      <ColNames>Order_ID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="429" parent="345" name="order_discount_discounts_Discount_ID_fk">
+      <ColNames>Discount_ID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="430" parent="345" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="431" parent="345" name="order_discount_orders_ID_fk">
+      <ColNames>Order_ID</ColNames>
+      <RefTableName>orders</RefTableName>
+      <RefColNames>ID</RefColNames>
+    </foreign-key>
+    <foreign-key id="432" parent="345" name="order_discount_discounts_Discount_ID_fk">
+      <ColNames>Discount_ID</ColNames>
+      <RefTableName>discount</RefTableName>
+      <RefColNames>Discount_ID</RefColNames>
+    </foreign-key>
+    <column id="433" parent="346" name="ID">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="434" parent="346" name="Username">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="435" parent="346" name="Ship_ID">
+      <Position>3</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="436" parent="346" name="Order_Date">
+      <Position>4</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="437" parent="346" name="Shipped_Date">
+      <Position>5</Position>
+      <DataType>date|0s</DataType>
+    </column>
+    <index id="438" parent="346" name="orders_ID_uindex">
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="439" parent="346" name="orders_shipping_company_Ship_ID_fk">
+      <ColNames>Ship_ID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="440" parent="346" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="441" parent="346" name="orders_ID_uindex">
+      <ColNames>ID</ColNames>
+      <UnderlyingIndexName>orders_ID_uindex</UnderlyingIndexName>
+    </key>
+    <foreign-key id="442" parent="346" name="orders_shipping_company_Ship_ID_fk">
+      <ColNames>Ship_ID</ColNames>
+      <RefTableName>shipping_company</RefTableName>
+      <RefColNames>Ship_ID</RefColNames>
+    </foreign-key>
+    <column id="443" parent="347" name="Publisher_ID">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="444" parent="347" name="Name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="445" parent="347" name="publishers_Publisher_ID_uindex">
+      <ColNames>Publisher_ID</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="446" parent="347" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Publisher_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="447" parent="347" name="publishers_Publisher_ID_uindex">
+      <ColNames>Publisher_ID</ColNames>
+      <UnderlyingIndexName>publishers_Publisher_ID_uindex</UnderlyingIndexName>
+    </key>
+    <column id="448" parent="348" name="Review_ID">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="449" parent="348" name="ISBN">
+      <Position>2</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="450" parent="348" name="Username">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="451" parent="348" name="Rating">
+      <Position>4</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="452" parent="348" name="Review_Text">
+      <Position>5</Position>
+      <DataType>longtext|0s</DataType>
+    </column>
+    <column id="453" parent="348" name="Post_Date">
+      <Position>6</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="454" parent="348" name="review_Review_ID_uindex">
+      <ColNames>Review_ID</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="455" parent="348" name="review_book_ISBN_fk">
+      <ColNames>ISBN</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="456" parent="348" name="review_user_username_fk">
+      <ColNames>Username</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="457" parent="348" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Review_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="458" parent="348" name="review_Review_ID_uindex">
+      <ColNames>Review_ID</ColNames>
+      <UnderlyingIndexName>review_Review_ID_uindex</UnderlyingIndexName>
+    </key>
+    <foreign-key id="459" parent="348" name="review_book_ISBN_fk">
+      <ColNames>ISBN</ColNames>
+      <RefTableName>book</RefTableName>
+      <RefColNames>ISBN</RefColNames>
+    </foreign-key>
+    <foreign-key id="460" parent="348" name="review_user_username_fk">
+      <ColNames>Username</ColNames>
+      <RefTableName>user</RefTableName>
+      <RefColNames>Username</RefColNames>
+    </foreign-key>
+    <column id="461" parent="349" name="Ship_ID">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="462" parent="349" name="Name">
+      <Position>2</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="463" parent="349" name="Phone">
+      <Position>3</Position>
+      <DataType>varchar(11)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="464" parent="349" name="Email">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="465" parent="349" name="ShippingCompany_Ship_ID_uindex">
+      <ColNames>Ship_ID</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="466" parent="349" name="ShippingCompany_Phone_uindex">
+      <ColNames>Phone</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="467" parent="349" name="ShippingCompany_Email_uindex">
+      <ColNames>Email</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="468" parent="349" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Ship_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="469" parent="349" name="ShippingCompany_Ship_ID_uindex">
+      <ColNames>Ship_ID</ColNames>
+      <UnderlyingIndexName>ShippingCompany_Ship_ID_uindex</UnderlyingIndexName>
+    </key>
+    <key id="470" parent="349" name="ShippingCompany_Phone_uindex">
+      <ColNames>Phone</ColNames>
+      <UnderlyingIndexName>ShippingCompany_Phone_uindex</UnderlyingIndexName>
+    </key>
+    <key id="471" parent="349" name="ShippingCompany_Email_uindex">
+      <ColNames>Email</ColNames>
+      <UnderlyingIndexName>ShippingCompany_Email_uindex</UnderlyingIndexName>
+    </key>
+    <column id="472" parent="350" name="Username">
+      <Position>1</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="473" parent="350" name="Password">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="474" parent="350" name="First_Name">
+      <Position>3</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="475" parent="350" name="Last_Name">
+      <Position>4</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="476" parent="350" name="Address">
+      <Position>5</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="477" parent="350" name="Phone">
+      <Position>6</Position>
+      <DataType>varchar(11)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="478" parent="350" name="Email">
+      <Position>7</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="479" parent="350" name="City_ID">
+      <Position>8</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="480" parent="350" name="User_username_uindex">
+      <ColNames>Username</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="481" parent="350" name="User_Email_uindex">
+      <ColNames>Email</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="482" parent="350" name="user_city_City_ID_fk">
+      <ColNames>City_ID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="483" parent="350" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Username</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="484" parent="350" name="User_username_uindex">
+      <ColNames>Username</ColNames>
+      <UnderlyingIndexName>User_username_uindex</UnderlyingIndexName>
+    </key>
+    <key id="485" parent="350" name="User_Email_uindex">
+      <ColNames>Email</ColNames>
+      <UnderlyingIndexName>User_Email_uindex</UnderlyingIndexName>
+    </key>
+    <foreign-key id="486" parent="350" name="user_city_City_ID_fk">
+      <ColNames>City_ID</ColNames>
+      <RefTableName>city</RefTableName>
+      <RefColNames>City_ID</RefColNames>
+    </foreign-key>
   </database-model>
 </dataSource>
