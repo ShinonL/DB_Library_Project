@@ -62,6 +62,12 @@ class AccountController extends AbstractController {
         if(UserValidation::isValidUser($userRepository, $_POST)) {
             // update username
             if (!empty($_POST['username'])) {
+                $orderRepository = $entityManager->getRepository('App:Orders');
+                $orders = $orderRepository->findBy(['username' => $user->getUsername()]);
+                foreach ($orders as $order) {
+                    $order->setUsername($_POST['username']);
+                }
+
                 $qb->delete()->where('user.username = \'' . $user->getUsername() . '\'');
                 $qb->getQuery()->getResult();
 

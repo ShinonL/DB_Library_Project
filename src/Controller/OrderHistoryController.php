@@ -32,19 +32,26 @@ class OrderHistoryController extends AbstractController {
 
         $error = null;
         $frontBooks = null;
-        $qbBooks = $bookRepository->createQueryBuilder('b');
         foreach ($orders as $order) {
+            $qbBooks = $bookRepository->createQueryBuilder('b');
             $books = $qbBooks->select('b.isbn', 'b.coverImage', 'b.price', 'b.title', 'bo.quantity as quantity')
                 ->innerJoin('App:BookOrder', 'bo', Join::WITH, 'bo.isbn = b.isbn')
-                ->innerJoin('App:Orders', 'o', Join::WITH, 'o.id = \'' . $order->getId() . '\'')
+                ->innerJoin('App:Orders', 'o', Join::WITH, 'o.id = bo.order')
+                ->where('o.id = ?1')->setParameter(1, $order->getId())
                 ->getQuery()->getResult();
 
             $count = ($books == null) ? 0 : count($books);
 
+            $subtotal = 0;
+            foreach ($books as $book) {
+                $subtotal += $book['price'] * $book['quantity'];
+            }
+
             $frontBooks[] = [
                 'orderId' => $order->getId(),
                 'booksOrdered' => $books,
-                'count' => $count
+                'count' => $count,
+                'total' => $subtotal + 15
             ];
         }
 

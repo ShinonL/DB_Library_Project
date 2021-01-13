@@ -4,7 +4,6 @@
 
 {% block stylesheets %}
     <link rel="stylesheet" href="/css/orderHistory.css" media="screen">
-    <script class="u-script" type="text/javascript" src="/js/orderHistory.js" defer=""></script>
 {% endblock %}
 
 {% block body %}
@@ -16,6 +15,7 @@
     {% for book in books %}
     <div class="heading cf">
         <h1>Order Number: {{ book.orderId }}</h1>
+        <a href="#" class="continue" style="font-size: medium"> Total: {{ book.total }} Lei  </a>
     </div>
     <div class="cart">
         <ul class="cartWrap">
@@ -27,7 +27,7 @@
                                 <img src="{{ book.booksOrdered[index].coverImage }}" alt="" class="itemImg" />
                                 <p class="itemNumber">ISBN: {{ book.booksOrdered[index].isbn }}</p>
                                 <h3>{{ book.booksOrdered[index].title }}</h3>
-                                <p class="qty" > {{ book.booksOrdered[index].price }} x {{ book.booksOrdered[index].quantity }}Lei</p>
+                                <p class="qty" >{{ book.booksOrdered[index].quantity }} x {{ book.booksOrdered[index].price }} Lei</p>
                             </div>
                             <div class="prodTotal cartSection">
                                 <p>{{ book.booksOrdered[index].price * book.booksOrdered[index].quantity }}Lei</p>
@@ -43,7 +43,7 @@
                                 <img src="{{ book.booksOrdered[index].coverImage }}" alt="" class="itemImg" />
                                 <p class="itemNumber">ISBN: {{ book.booksOrdered[index].isbn }}</p>
                                 <h3>{{ book.booksOrdered[index].title }}</h3>
-                                <p class="qty" > {{ book.booksOrdered[index].price }} x {{ book.booksOrdered[index].quantity }}Lei</p>
+                                <p class="qty" > {{ book.booksOrdered[index].quantity }} x {{ book.booksOrdered[index].price }} Lei</p>
                             </div>
                             <div class="prodTotal cartSection">
                                 <p>{{ book.booksOrdered[index].price * book.booksOrdered[index].quantity }}Lei</p>
