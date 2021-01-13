@@ -17,7 +17,7 @@ class Orders
      *
      * @ORM\Column(name="ID", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $id;
 
@@ -29,18 +29,11 @@ class Orders
     private $username;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="Order_Date", type="date", nullable=false)
+     * @ORM\Column(name="Order_Date", type="string", length=11, nullable=false)
      */
     private $orderDate;
-
-    /**
-     * @var \DateTime|null
-     *
-     * @ORM\Column(name="Shipped_Date", type="date", nullable=true, options={"default"="NULL"})
-     */
-    private $shippedDate = 'NULL';
 
     /**
      * @var \ShippingCompany
@@ -85,49 +78,33 @@ class Orders
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
-    public function getOrderDate(): \DateTime
+    public function getOrderDate(): string
     {
         return $this->orderDate;
     }
 
     /**
-     * @param \DateTime $orderDate
+     * @param string $orderDate
      */
-    public function setOrderDate(\DateTime $orderDate): void
+    public function setOrderDate(string $orderDate): void
     {
         $this->orderDate = $orderDate;
     }
 
     /**
-     * @return \DateTime|null
+     * @return ShippingCompany
      */
-    public function getShippedDate()
-    {
-        return $this->shippedDate;
-    }
-
-    /**
-     * @param \DateTime|null $shippedDate
-     */
-    public function setShippedDate($shippedDate): void
-    {
-        $this->shippedDate = $shippedDate;
-    }
-
-    /**
-     * @return \ShippingCompany
-     */
-    public function getShip(): \ShippingCompany
+    public function getShip(): ShippingCompany
     {
         return $this->ship;
     }
 
     /**
-     * @param \ShippingCompany $ship
+     * @param ShippingCompany $ship
      */
-    public function setShip(\ShippingCompany $ship): void
+    public function setShip(ShippingCompany $ship): void
     {
         $this->ship = $ship;
     }

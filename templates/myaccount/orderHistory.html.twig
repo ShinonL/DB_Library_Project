@@ -1,0 +1,59 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Order History{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="/css/orderHistory.css" media="screen">
+    <script class="u-script" type="text/javascript" src="/js/orderHistory.js" defer=""></script>
+{% endblock %}
+
+{% block body %}
+    <div class="wrap cf">
+    {% if error is defined %}
+        <h1 class="projTitle">{{ error }}</h1>
+    {% endif %}
+
+    {% for book in books %}
+    <div class="heading cf">
+        <h1>Order Number: {{ book.orderId }}</h1>
+    </div>
+    <div class="cart">
+        <ul class="cartWrap">
+            {% for index in 0..book.count-1 %}
+                {% if index % 2 == 0 %}
+                    <li class="items even">
+                        <div class="infoWrap">
+                            <div class="cartSection">
+                                <img src="{{ book.booksOrdered[index].coverImage }}" alt="" class="itemImg" />
+                                <p class="itemNumber">ISBN: {{ book.booksOrdered[index].isbn }}</p>
+                                <h3>{{ book.booksOrdered[index].title }}</h3>
+                                <p class="qty" > {{ book.booksOrdered[index].price }} x {{ book.booksOrdered[index].quantity }}Lei</p>
+                            </div>
+                            <div class="prodTotal cartSection">
+                                <p>{{ book.booksOrdered[index].price * book.booksOrdered[index].quantity }}Lei</p>
+                            </div>
+                        </div>
+                    </li>
+                {% endif %}
+
+                {% if index % 2 == 1 %}
+                    <li class="items odd">
+                        <div class="infoWrap">
+                            <div class="cartSection">
+                                <img src="{{ book.booksOrdered[index].coverImage }}" alt="" class="itemImg" />
+                                <p class="itemNumber">ISBN: {{ book.booksOrdered[index].isbn }}</p>
+                                <h3>{{ book.booksOrdered[index].title }}</h3>
+                                <p class="qty" > {{ book.booksOrdered[index].price }} x {{ book.booksOrdered[index].quantity }}Lei</p>
+                            </div>
+                            <div class="prodTotal cartSection">
+                                <p>{{ book.booksOrdered[index].price * book.booksOrdered[index].quantity }}Lei</p>
+                            </div>
+                        </div>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+    </div>
+{% endblock %}

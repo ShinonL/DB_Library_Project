@@ -1,0 +1,55 @@
+{% extends "base.html.twig" %}
+{% block title %} Shopping cart {% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="/css/cart.css" media="screen">
+{% endblock %}
+{% block body %}
+<div class="container">
+    <section id="cart">
+        {% for book in books %}
+        <!-- product -->
+        <article class="product">
+            <header>
+                <a href="/{{ book.isbn }}/removeCart" class="remove">
+                    <img src="{{ book.cover }}" alt="">
+                    <h3>Remove product</h3>
+                </a>
+            </header>
+
+            <div class="content">
+                <h1> {{ book.title }} </h1>
+            </div>
+
+            <footer class="content">
+                <a href="/{{ book.isbn }}/minusBook" class="qt-minus"> - </a>
+                <span class="qt"> {{ book.ammount }} </span>
+                <a href="/{{ book.isbn }}/plusBook" class="qt-plus"> + </a>
+
+                <h2 class="full-price"> {{ book.price * book.ammount }} Lei</h2>
+            </footer>
+        </article>
+        <!-- end of product -->
+        {% endfor %}
+    </section>
+</div>
+
+<footer id="site-footer">
+    <div class="container clearfix">
+        <div class="u-align-center">
+            <h1> {{ cart }} </h1>
+        </div>
+        <div class="left">
+            <h2 class="subtotal">Subtotal: <span> {{ subtotal }} Lei </span></h2>
+            <h3 class="shipping">Shipping: <span>15.00</span>Lei</h3>
+        </div>
+
+        <div class="right">
+            <h1 class="total">Total: <span> {{ total }} Lei </span></h1>
+            <a href="/checkout" class="btn">Checkout</a>
+            <br>
+            <a href="clearList" class="btn">Clear List</a>
+        </div>
+
+    </div>
+</footer>
+{% endblock %}

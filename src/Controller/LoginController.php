@@ -58,6 +58,7 @@ class LoginController extends AbstractController {
      * @Route("/logout", name="app_logout")
      */
     public function logout(Request $request) {
+        $request->getSession()->set('addedBooks', null);
         $request->getSession()->invalidate();
         return $this->redirect("/login");
     }

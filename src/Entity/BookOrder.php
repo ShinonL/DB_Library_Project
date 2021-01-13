@@ -17,7 +17,7 @@ class BookOrder
      *
      * @ORM\Column(name="ID", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $id;
 
@@ -81,33 +81,33 @@ class BookOrder
     }
 
     /**
-     * @return \Book
+     * @return Book
      */
-    public function getIsbn(): \Book
+    public function getIsbn(): Book
     {
         return $this->isbn;
     }
 
     /**
-     * @param \Book $isbn
+     * @param Book $isbn
      */
-    public function setIsbn(\Book $isbn): void
+    public function setIsbn(Book $isbn): void
     {
         $this->isbn = $isbn;
     }
 
     /**
-     * @return \Orders
+     * @return Orders
      */
-    public function getOrder(): \Orders
+    public function getOrder(): Orders
     {
         return $this->order;
     }
 
     /**
-     * @param \Orders $order
+     * @param Orders $order
      */
-    public function setOrder(\Orders $order): void
+    public function setOrder(Orders $order): void
     {
         $this->order = $order;
     }
