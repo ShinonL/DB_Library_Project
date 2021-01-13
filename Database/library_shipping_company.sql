@@ -1,0 +1,1 @@
+INSERT INTO library.shipping_company (Ship_ID, Name, Phone, Email) VALUES (1, 'Fan Curier', '0742552233', 'contact@fancurier.ro');
